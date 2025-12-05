@@ -3,148 +3,1092 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SLF MINISTRIES - క్రైస్తవ నూతన సంవత్సర గీతం</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu&family=Playfair+Display:wght@400;700&family=Cinzel:wght@600&display=swap" rel="stylesheet">
+  <title>Najareyuda Naa Yessaya — 2026 New Year Song | SLF Ministries</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Telugu:wght@400;600;700&family=Poppins:wght@300;400;600;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --primary: #2746d1;
+      --primary-light: #3a5bf0;
+      --accent: #f1c40f;
+      --accent-dark: #d4ac0d;
+      --dark: #0a1a2f;
+      --light: #fbfbfd;
+      --text: #333333;
+      --text-light: #6b6b6b;
+      --success: #2ecc71;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.12);
+    }
+        
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      font-family: 'Noto Serif Telugu', serif;
-      background: #0a1a2f;
-      color: #fff;
-      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.6;
       overflow-x: hidden;
       position: relative;
     }
 
-    /* Starry background */
-    body::before {
-      content:"";
-      position:fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      background:transparent;
-      box-shadow: 
-        100px 200px #fff,
-        300px 400px #fff,
-        500px 100px #fff,
-        700px 300px #fff,
-        900px 500px #fff,
-        1200px 200px #fff,
-        1500px 400px #fff,
-        1700px 100px #fff,
-        2000px 350px #fff;
-      animation: twinkle 6s linear infinite;
+    /* Animated Background Elements */
+    .bg-elements {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: -1;
+      pointer-events: none;
     }
 
-    @keyframes twinkle {
-      0%,100% { opacity:0.5; }
-      50% { opacity:1; }
+    .floating-cross {
+      position: absolute;
+      color: rgba(39, 70, 209, 0.05);
+      font-size: 3rem;
+      animation: float 25s infinite linear;
     }
 
-    .container {
-      max-width:900px;
-      margin:0 auto;
-      padding:20px;
+    .floating-dove {
+      position: absolute;
+      color: rgba(241, 196, 15, 0.05);
+      font-size: 2.5rem;
+      animation: floatReverse 30s infinite linear;
     }
 
-    .header {
-      text-align:center;
-      margin-bottom:40px;
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-100vh) rotate(360deg); }
     }
 
-    .ministry-name {
+    @keyframes floatReverse {
+      0% { transform: translateY(100vh) rotate(0deg); }
+      100% { transform: translateY(0) rotate(-360deg); }
+    }
+
+    /* Header Navigation */
+    .main-nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      padding: 15px 0;
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-family: 'Cinzel', serif;
-      font-size:3rem;
-      color: #ffd166;
-      text-shadow: 0 0 15px #ffd166;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--primary);
     }
 
-    .subtitle {
-      font-size:1.4rem;
-      color:#a8dadc;
-      margin-bottom:10px;
+    .logo-icon {
+      color: var(--accent);
+      font-size: 1.6rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 20px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(assets/banner.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+  
+  /* Default position (center) */
+  background-position: center center;
+  
+  /* For larger screens where you want to show right side */
+  @media (min-width: 992px) {
+    background-position: 70% center; /* Adjust this value: 0% is left, 100% is right */
+  }
+  
+  /* For mobile - focus on center or left part */
+  @media (max-width: 768px) {
+    background-position: 30% center; /* Or use 'left center' to show left part */
+  }
+}
+    .hero-content {
+      max-width: 1100px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 30px;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif Telugu', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 10px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s ease forwards 0.3s;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto 30px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s ease forwards 0.5s;
     }
 
     .year-badge {
-      display:inline-block;
-      background: linear-gradient(45deg,#e63946,#ff9a00);
-      color:white;
-      padding:8px 25px;
-      border-radius:30px;
-      font-weight:bold;
-      margin-top:10px;
-      box-shadow: 0 4px 15px rgba(230,57,70,0.4);
+      display: inline-block;
+      background: linear-gradient(45deg, var(--primary), var(--primary-light));
+      color: white;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s ease forwards 0.7s;
+      position: relative;
+      overflow: hidden;
     }
 
-    .song-section {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      border-radius:15px;
-      padding:25px;
-      margin-bottom:25px;
-      border-left:5px solid #ffd166;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    .year-badge::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.7s;
+    }
+
+    .year-badge:hover::after {
+      left: 100%;
+    }
+
+    /* Audio Player */
+    .audio-player {
+      background: white;
+      border-radius: var(--radius);
+      padding: 25px;
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s ease forwards 0.9s;
+    }
+
+    .album-cover {
+      width: 120px;
+      height: 120px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      flex-shrink: 0;
+    }
+
+    .album-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .player-controls {
+      flex: 1;
+    }
+
+    .song-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .song-artist {
+      font-size: 1rem;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    .play-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(39, 70, 209, 0.3);
+    }
+
+    .play-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(39, 70, 209, 0.4);
+    }
+
+    .progress-container {
+      flex: 1;
+      margin-left: 20px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: #eee;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      transition: width 0.1s linear;
+    }
+
+    .time-display {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-top: 5px;
+    }
+
+    /* Lyrics Section */
+    .section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
     }
 
     .section-title {
-      font-family:'Playfair Display', serif;
-      font-size:1.8rem;
-      color:#ffd166;
-      margin-bottom:20px;
-      display:flex;
-      align-items:center;
-      gap:10px;
+      font-family: 'Noto Serif Telugu', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
     }
 
-    .lyrics p {
-      font-size:1.3rem;
-      line-height:1.8;
-      color:#f1faee;
-      margin-bottom:12px;
-      text-align:left;
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
     }
 
-    .footer {
-      text-align:center;
-      margin-top:30px;
-      font-size:1rem;
-      color:#a8dadc;
+    .lyrics-container {
+      background: white;
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lyrics-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--primary), var(--accent));
+    }
+
+    .verse {
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    .verse.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .verse-title {
+      font-family: 'Noto Serif Telugu', serif;
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .verse-title i {
+      color: var(--accent);
+    }
+
+    .verse-text {
+      font-family: 'Noto Serif Telugu', serif;
+      font-size: 1.3rem;
+      line-height: 1.8;
+      color: var(--text);
+      padding-right: 10px;
+    }
+
+    .verse-text p {
+      margin-bottom: 15px;
+    }
+
+    /* Stories Section */
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .story-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 25px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      border-top: 4px solid var(--primary);
+    }
+
+    .story-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .story-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(39, 70, 209, 0.05), rgba(241, 196, 15, 0.05));
+      z-index: -1;
+    }
+
+    .story-icon {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+
+    .story-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .story-ref {
+      font-size: 0.9rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-top: 15px;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: linear-gradient(135deg, rgba(39, 70, 209, 0.05) 0%, rgba(241, 196, 15, 0.05) 100%);
+      border-radius: var(--radius);
+      padding: 50px;
+      margin-top: 60px;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-label {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--dark);
+    }
+
+    .form-input, .form-textarea {
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(39, 70, 209, 0.1);
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      border: none;
+      padding: 16px 30px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(39, 70, 209, 0.3);
+    }
+
+    /* Footer */
+    .main-footer {
+      background: var(--dark);
+      color: white;
+      padding: 60px 20px 30px;
+      margin-top: 80px;
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-text {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-link {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     /* Responsive */
-    @media(max-width:768px){
-      .ministry-name { font-size:2.2rem; }
-      .song-section { padding:15px; }
-      .lyrics p { font-size:1.1rem; }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      .audio-player {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .album-cover {
+        width: 150px;
+        height: 150px;
+      }
+
+      .progress-container {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .lyrics-container {
+        padding: 25px;
+      }
+
+      .verse-text {
+        font-size: 1.1rem;
+      }
+
+      .contact-section {
+        padding: 30px 20px;
+      }
     }
 
+    /* Modal for gallery */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    /* Loading animation */
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Notification */
+    .notification {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--success);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 10px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 3000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
+
+    .notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+      /* Gallery Styles */
+  #gallery {
+    margin: 60px auto;
+  }
+
+  .scroll-row {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 10px 0;
+  }
+
+  .scroll-row::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      var(--light) 0%, 
+      transparent 10%, 
+      transparent 90%, 
+      var(--light) 100%);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .scroll-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  .row-left .scroll-track {
+    animation-name: scroll-left;
+  }
+
+  .row-right .scroll-track {
+    animation-name: scroll-right;
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes scroll-right {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .gallery-item {
+    position: relative;
+    width: 280px;
+    height: 180px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .gallery-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.05);
+  }
+
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(39, 70, 209, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-item:hover .image-overlay {
+    opacity: 1;
+  }
+
+  .image-overlay i {
+    font-size: 2.5rem;
+    color: white;
+  }
+
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 3000;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-content img {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .modal-close:hover {
+    color: var(--accent);
+  }
+
+  .modal-nav {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 20px;
+  }
+
+  .modal-nav-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+  }
+
+  .modal-nav-btn:hover {
+    background: var(--primary);
+    transform: scale(1.1);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .gallery-item {
+      width: 220px;
+      height: 140px;
+    }
+    
+    .scroll-track {
+      gap: 15px;
+    }
+    
+    .modal-nav-btn {
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .gallery-item {
+      width: 180px;
+      height: 120px;
+    }
+    
+    .scroll-track {
+      gap: 12px;
+    }
+    
+    .modal-nav {
+      padding: 0 10px;
+    }
+  }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header class="header">
-      <h1 class="ministry-name">SLF MINISTRIES</h1>
-      <p class="subtitle">క్రైస్తవ నూతన సంవత్సర గీతం</p>
-      <div class="year-badge">2025</div>
-    </header>
+  <!-- Background Elements -->
+  <div class="bg-elements" id="bgElements"></div>
 
-    <main>
-      <section class="song-section">
-        <h2 class="section-title"><i class="fas fa-music"></i> పల్లవి</h2>
-        <div class="lyrics">
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <i class="fas fa-cross logo-icon"></i>
+        <span>SLF MINISTRIES</span>
+      </a>
+      
+      <div class="nav-links">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#lyrics" class="nav-link">Lyrics</a>
+        <a href="#stories" class="nav-link">Bible Stories</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#contact" class="nav-link">Prayer</a>
+      </div>
+      
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">నజరేయుడా నా యేసయ్యా</h1>
+      <p class="hero-subtitle">A New Year Worship Song - Celebrating God's Lifting Power From Lowliness to Blessing</p>
+      <div class="year-badge">2026 New Year Song</div>
+      
+      <!-- Audio Player -->
+      <div class="audio-player">
+        <div class="album-cover">
+          <img src="assets/cover.jpg" alt="Album Cover">
+        </div>
+        
+        <div class="player-controls">
+          <div class="song-title">Najareyuda Naa Yessaya</div>
+          <div class="song-artist">SLF Ministries | Written by Bro. V. Naveen</div>
+          
+          <div style="display: flex; align-items: center;">
+            <button class="play-btn" id="playButton">
+              <i class="fas fa-play"></i>
+            </button>
+            
+            <div class="progress-container">
+              <div class="progress-bar" id="progressBar">
+                <div class="progress" id="progress"></div>
+              </div>
+              <div class="time-display">
+                <span id="currentTime">0:00</span>
+                <span id="duration">0:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <audio id="audioPlayer" preload="metadata">
+        <!-- In a real implementation, add your audio file source here -->
+        <!-- <source src="audio/song.mp3" type="audio/mpeg"> -->
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </section>
+
+  <!-- Lyrics Section -->
+  <section class="section" id="lyrics">
+    <h2 class="section-title">Lyrics (పద్యాలు)</h2>
+    
+    <div class="lyrics-container">
+      <!-- Pallavi -->
+      <div class="verse" id="verse1">
+        <h3 class="verse-title"><i class="fas fa-music"></i> పల్లవి</h3>
+        <div class="verse-text">
           <p>నా లేమి స్థితి నుండి నన్ను లేవనెత్తావు</p>
           <p>నా దీన స్థితి నుండి నన్ను దీవించావు</p>
           <p>నజరేయుడా నా యేసయ్యా</p>
           <p>నీ సాక్షిగా నే ఈలలో జీవంచేదనయ</p>
         </div>
-      </section>
-
-      <section class="song-section">
-        <h2 class="section-title"><i class="fas fa-book-open"></i> చరణం 1</h2>
-        <div class="lyrics">
+      </div>
+      
+      <!-- Charanam 1 -->
+      <div class="verse" id="verse2">
+        <h3 class="verse-title"><i class="fas fa-book-open"></i> చరణం 1</h3>
+        <div class="verse-text">
           <p>పాపపు హృదయంతో నేను</p>
           <p>నీ సన్నిధి చేరి ఉండగా</p>
           <p>నీ వాక్యంతో నా హృదయ స్థితిని మార్చావు</p>
@@ -153,11 +1097,12 @@
           <p>నీ ఉన్నత స్థితిని విడిచి</p>
           <p>ఈ భూమికి అరుగదించితివా — నజరేయుడా</p>
         </div>
-      </section>
-
-      <section class="song-section">
-        <h2 class="section-title"><i class="fas fa-book-open"></i> చరణం 2</h2>
-        <div class="lyrics">
+      </div>
+      
+      <!-- Charanam 2 -->
+      <div class="verse" id="verse3">
+        <h3 class="verse-title"><i class="fas fa-book-open"></i> చరణం 2</h3>
+        <div class="verse-text">
           <p>ఆకర్షించే ఈ లోకమును</p>
           <p>నేను తేరి చూడగా</p>
           <p>నా హృదయంలో నేను</p>
@@ -167,22 +1112,718 @@
           <p>నీ ప్రభావము చూపి</p>
           <p>మహిమ స్థితికి మార్చావు — నజరేయుడా</p>
         </div>
-      </section>
-
-      <section class="song-section">
-        <h2 class="section-title"><i class="fas fa-flag"></i> ముగింపు (పల్లవి)</h2>
-        <div class="lyrics">
+      </div>
+      
+      <!-- Ending -->
+      <div class="verse" id="verse4">
+        <h3 class="verse-title"><i class="fas fa-flag"></i> ముగింపు (పల్లవి)</h3>
+        <div class="verse-text">
           <p>నా లేమి స్థితి నుండి నన్ను లేవనెత్తావు</p>
           <p>నా దీన స్థితి నుండి నన్ను దీవించావు</p>
           <p>నజరేయుడా నా యేసయ్యా</p>
           <p>నీ సాక్షిగా నే ఈలలో జీవంచేదనయ</p>
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
+  </section>
 
-    <footer class="footer">
-      Written by Bro. V. Naveen
-    </footer>
+  <!-- Bible Stories Section -->
+  <section class="section" id="stories">
+    <h2 class="section-title">Bible Story Themes</h2>
+    
+    <div class="stories-grid">
+      <!-- Story 1 -->
+      <div class="story-card">
+        <div class="story-icon">
+          <i class="fas fa-star-of-david"></i>
+        </div>
+        <h3 class="story-title">David & Goliath</h3>
+        <p>God lifts the lowly to victory — courage, faith and God's deliverance.</p>
+        <div class="story-ref">1 Samuel 17</div>
+      </div>
+      
+      <!-- Story 2 -->
+      <div class="story-card">
+        <div class="story-icon">
+          <i class="fas fa-mountain"></i>
+        </div>
+        <h3 class="story-title">Abraham — Promise & Faith</h3>
+        <p>God calls us to step out in faith for His promises.</p>
+        <div class="story-ref">Genesis 12–22</div>
+      </div>
+      
+      <!-- Story 3 -->
+      <div class="story-card">
+        <div class="story-icon">
+          <i class="fas fa-crown"></i>
+        </div>
+        <h3 class="story-title">Joseph — From Pit to Palace</h3>
+        <p>Providence turns hardship into purpose and blessing.</p>
+        <div class="story-ref">Genesis 37–50</div>
+      </div>
+      
+      <!-- Story 4 -->
+      <div class="story-card">
+        <div class="story-icon">
+          <i class="fas fa-baby"></i>
+        </div>
+        <h3 class="story-title">Nativity — Jesus Birth</h3>
+        <p>God's arrival — new hope and light for the world.</p>
+        <div class="story-ref">Luke 2</div>
+      </div>
+    </div>
+  </section>
+<!-- Gallery Section -->
+<section id="gallery" class="section fade-up">
+  <h2 class="section-title">Behind The Scenes Gallery</h2>
+  
+  <!-- Row 1: Moves Left to Right -->
+  <div class="scroll-row row-left" style="margin-bottom: 20px;">
+    <div class="scroll-track">
+      <!-- Original Set -->
+      <div class="gallery-item">
+        <img src="assets/bts1.jpg" alt="BTS 1" onclick="openModal('assets/bts1.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts2.jpg" alt="BTS 2" onclick="openModal('assets/bts2.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts3.jpg" alt="BTS 3" onclick="openModal('assets/bts3.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts4.jpg" alt="BTS 4" onclick="openModal('assets/bts4.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts5.jpg" alt="BTS 5" onclick="openModal('assets/bts5.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts6.jpg" alt="BTS 6" onclick="openModal('assets/bts6.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts7.jpg" alt="BTS 7" onclick="openModal('assets/bts7.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      
+      <!-- Duplicate Set for seamless loop -->
+      <div class="gallery-item">
+        <img src="assets/bts1.jpg" alt="BTS 1" onclick="openModal('assets/bts1.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts2.jpg" alt="BTS 2" onclick="openModal('assets/bts2.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts3.jpg" alt="BTS 3" onclick="openModal('assets/bts3.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts4.jpg" alt="BTS 4" onclick="openModal('assets/bts4.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts5.jpg" alt="BTS 5" onclick="openModal('assets/bts5.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts6.jpg" alt="BTS 6" onclick="openModal('assets/bts6.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts7.jpg" alt="BTS 7" onclick="openModal('assets/bts7.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Row 2: Moves Right to Left -->
+  <div class="scroll-row row-right" style="margin-bottom: 20px;">
+    <div class="scroll-track">
+      <!-- Original Set -->
+      <div class="gallery-item">
+        <img src="assets/bts8.jpg" alt="BTS 8" onclick="openModal('assets/bts8.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts9.jpg" alt="BTS 9" onclick="openModal('assets/bts9.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts10.jpg" alt="BTS 10" onclick="openModal('assets/bts10.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts11.jpg" alt="BTS 11" onclick="openModal('assets/bts11.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts12.jpg" alt="BTS 12" onclick="openModal('assets/bts12.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts13.jpg" alt="BTS 13" onclick="openModal('assets/bts13.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts14.jpg" alt="BTS 14" onclick="openModal('assets/bts14.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      
+      <!-- Duplicate Set for seamless loop -->
+      <div class="gallery-item">
+        <img src="assets/bts8.jpg" alt="BTS 8" onclick="openModal('assets/bts8.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts9.jpg" alt="BTS 9" onclick="openModal('assets/bts9.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts10.jpg" alt="BTS 10" onclick="openModal('assets/bts10.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts11.jpg" alt="BTS 11" onclick="openModal('assets/bts11.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts12.jpg" alt="BTS 12" onclick="openModal('assets/bts12.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts13.jpg" alt="BTS 13" onclick="openModal('assets/bts13.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts14.jpg" alt="BTS 14" onclick="openModal('assets/bts14.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 3: Moves Left to Right -->
+  <div class="scroll-row row-left">
+    <div class="scroll-track">
+      <!-- Original Set -->
+      <div class="gallery-item">
+        <img src="assets/bts15.jpg" alt="BTS 15" onclick="openModal('assets/bts15.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts16.jpg" alt="BTS 16" onclick="openModal('assets/bts16.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts17.jpg" alt="BTS 17" onclick="openModal('assets/bts17.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts1.jpg" alt="BTS 1" onclick="openModal('assets/bts1.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts4.jpg" alt="BTS 4" onclick="openModal('assets/bts4.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts7.jpg" alt="BTS 7" onclick="openModal('assets/bts7.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts10.jpg" alt="BTS 10" onclick="openModal('assets/bts10.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      
+      <!-- Duplicate Set for seamless loop -->
+      <div class="gallery-item">
+        <img src="assets/bts15.jpg" alt="BTS 15" onclick="openModal('assets/bts15.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts16.jpg" alt="BTS 16" onclick="openModal('assets/bts16.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts17.jpg" alt="BTS 17" onclick="openModal('assets/bts17.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts1.jpg" alt="BTS 1" onclick="openModal('assets/bts1.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts4.jpg" alt="BTS 4" onclick="openModal('assets/bts4.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts7.jpg" alt="BTS 7" onclick="openModal('assets/bts7.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/bts10.jpg" alt="BTS 10" onclick="openModal('assets/bts10.jpg')">
+        <div class="image-overlay">
+          <i class="fas fa-search-plus"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <p style="text-align: center; margin-top: 20px; color: var(--text-light);">
+    <i class="fas fa-info-circle" style="margin-right: 8px;"></i>
+    Click on any image to view it larger
+  </p>
+</section>
+
+<!-- Image Modal -->
+<div class="modal" id="imageModal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <img id="modalImage" src="" alt="Enlarged view">
+    <div class="modal-nav">
+      <button class="modal-nav-btn" onclick="prevImage()">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="modal-nav-btn" onclick="nextImage()">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+  <!-- Contact / Prayer Section -->
+  <section class="section" id="contact">
+    <div class="contact-section">
+      <h2 class="section-title">Prayer Request</h2>
+      <p style="color: var(--text-light); margin-bottom: 30px;">We would be honored to pray for you. Share your prayer requests with us.</p>
+      
+      <form class="contact-form" id="prayerForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="name">Your Name (పేరు)</label>
+            <input type="text" id="name" class="form-input" placeholder="Enter your name" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="prayer">Prayer Request</label>
+          <textarea id="prayer" class="form-textarea" rows="5" placeholder="Please share your prayer request..." required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span>Submit Prayer Request</span>
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+      
+      <div style="margin-top: 30px; color: var(--text-light); font-size: 0.9rem;">
+        <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> sarahlivingfaithministries@gmail.com</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div>
+        <div class="footer-logo">
+          <i class="fas fa-cross"></i>
+          SLF MINISTRIES
+        </div>
+        <p class="footer-text">Proclaiming the love and power of Jesus Christ through worship, music, and ministry.</p>
+        
+        <div class="social-links">
+          <a href="https://www.youtube.com/@slfministriesvijayawada" class="social-link" target="_blank">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="https://www.instagram.com/s.l.f.ministries_vijayawada?igsh=MW1oNmp0dmQzM3diNg==" class="social-link" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="social-link">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="social-link">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div>
+        <h3 style="color: white; margin-bottom: 20px;">Quick Links</h3>
+        <ul style="list-style: none;">
+          <li style="margin-bottom: 10px;"><a href="#home" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">Home</a></li>
+          <li style="margin-bottom: 10px;"><a href="#lyrics" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">Lyrics</a></li>
+          <li style="margin-bottom: 10px;"><a href="#stories" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">Bible Stories</a></li>
+          <li style="margin-bottom: 10px;"><a href="#contact" style="color: rgba(255, 255, 255, 0.7); text-decoration: none;">Prayer Request</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 style="color: white; margin-bottom: 20px;">Contact Info</h3>
+        <p class="footer-text">
+          <i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Vijayawada, Andhra Pradesh
+        </p>
+        <p class="footer-text">
+          <i class="fas fa-phone" style="margin-right: 10px;"></i> +91 9642295097
+        </p>
+        <p class="footer-text">
+          <i class="fas fa-envelope" style="margin-right: 10px;"></i> sarahlivingfaithministries@gmail.com
+        </p>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>© 2026 SLF Ministries. All rights reserved. | "Najareyuda Naa Yessaya" — Written by Bro. V. Naveen</p>
+    </div>
+  </footer>
+
+  <!-- Notification -->
+  <div class="notification" id="notification">
+    <i class="fas fa-check-circle"></i>
+    <span id="notificationText">Prayer request submitted successfully!</span>
+  </div>
+
+  <script>
+    // Image Modal Functionality
+  const imagePaths = [
+    'assets/bts1.jpg', 'assets/bts2.jpg', 'assets/bts3.jpg',
+    'assets/bts4.jpg', 'assets/bts5.jpg', 'assets/bts6.jpg',
+    'assets/bts7.jpg', 'assets/bts8.jpg', 'assets/bts9.jpg',
+    'assets/bts10.jpg', 'assets/bts11.jpg', 'assets/bts12.jpg',
+    'assets/bts13.jpg', 'assets/bts14.jpg', 'assets/bts15.jpg',
+    'assets/bts16.jpg', 'assets/bts17.jpg'
+  ];
+  
+  let currentImageIndex = 0;
+  
+  function openModal(imageSrc) {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    
+    // Find the index of the clicked image
+    currentImageIndex = imagePaths.indexOf(imageSrc);
+    if (currentImageIndex === -1) currentImageIndex = 0;
+    
+    modalImage.src = imageSrc;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeModal() {
+    const modal = document.getElementById('imageModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+  
+  function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % imagePaths.length;
+    document.getElementById('modalImage').src = imagePaths[currentImageIndex];
+  }
+  
+  function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + imagePaths.length) % imagePaths.length;
+    document.getElementById('modalImage').src = imagePaths[currentImageIndex];
+  }
+  
+  // Close modal with Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowRight') nextImage();
+    if (e.key === 'ArrowLeft') prevImage();
+  });
+  
+  // Close modal when clicking outside image
+  document.getElementById('imageModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+  
+  // Pause animation on hover
+  const scrollRows = document.querySelectorAll('.scroll-row');
+  scrollRows.forEach(row => {
+    row.addEventListener('mouseenter', function() {
+      this.querySelector('.scroll-track').style.animationPlayState = 'paused';
+    });
+    
+    row.addEventListener('mouseleave', function() {
+      this.querySelector('.scroll-track').style.animationPlayState = 'running';
+    });
+  });
+    // Initialize background elements
+    function initBackgroundElements() {
+      const bgElements = document.getElementById('bgElements');
+      const symbols = ['cross', 'dove', 'star', 'heart', 'church'];
+      
+      for (let i = 0; i < 20; i++) {
+        const element = document.createElement('div');
+        const symbolType = symbols[Math.floor(Math.random() * symbols.length)];
+        
+        if (symbolType === 'cross') {
+          element.className = 'floating-cross';
+          element.innerHTML = '<i class="fas fa-cross"></i>';
+        } else if (symbolType === 'dove') {
+          element.className = 'floating-dove';
+          element.innerHTML = '<i class="fas fa-dove"></i>';
+        } else {
+          element.className = 'floating-cross';
+          element.innerHTML = `<i class="fas fa-${symbolType}"></i>`;
+        }
+        
+        element.style.left = `${Math.random() * 100}%`;
+        element.style.animationDelay = `${Math.random() * 20}s`;
+        element.style.fontSize = `${Math.random() * 2 + 1.5}rem`;
+        
+        bgElements.appendChild(element);
+      }
+    }
+
+    // Audio player functionality
+    const audio = document.getElementById('audioPlayer');
+    const playButton = document.getElementById('playButton');
+    const progress = document.getElementById('progress');
+    const progressBar = document.getElementById('progressBar');
+    const currentTimeElement = document.getElementById('currentTime');
+    const durationElement = document.getElementById('duration');
+
+    function togglePlay() {
+      if (audio.paused) {
+        audio.play();
+        playButton.innerHTML = '<i class="fas fa-pause"></i>';
+      } else {
+        audio.pause();
+        playButton.innerHTML = '<i class="fas fa-play"></i>';
+      }
+    }
+
+    function updateProgress() {
+      const percent = (audio.currentTime / audio.duration) * 100;
+      progress.style.width = `${percent}%`;
+      
+      // Update time display
+      currentTimeElement.textContent = formatTime(audio.currentTime);
+    }
+
+    function setProgress(e) {
+      const width = this.clientWidth;
+      const clickX = e.offsetX;
+      const duration = audio.duration;
+      
+      audio.currentTime = (clickX / width) * duration;
+    }
+
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+
+    function updateDuration() {
+      durationElement.textContent = formatTime(audio.duration);
+    }
+
+    // Initialize audio player
+    audio.addEventListener('loadedmetadata', updateDuration);
+    audio.addEventListener('timeupdate', updateProgress);
+    audio.addEventListener('ended', () => {
+      playButton.innerHTML = '<i class="fas fa-play"></i>';
+      progress.style.width = '0%';
+    });
+    
+    playButton.addEventListener('click', togglePlay);
+    progressBar.addEventListener('click', setProgress);
+
+    // Scroll animations for lyrics
+    const verses = document.querySelectorAll('.verse');
+    
+    function checkScroll() {
+      verses.forEach(verse => {
+        const verseTop = verse.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (verseTop < windowHeight * 0.85) {
+          verse.classList.add('visible');
+        }
+      });
+    }
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.querySelector('.nav-links');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+      
+      if (navLinks.style.display === 'flex') {
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '100%';
+        navLinks.style.left = '0';
+        navLinks.style.width = '100%';
+        navLinks.style.backgroundColor = 'white';
+        navLinks.style.padding = '20px';
+        navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+        navLinks.style.gap = '20px';
+      }
+    });
+
+    // Prayer form submission
+    const prayerForm = document.getElementById('prayerForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const notification = document.getElementById('notification');
+    const notificationText = document.getElementById('notificationText');
+    
+    function showNotification(message, isError = false) {
+      notificationText.textContent = message;
+      notification.style.background = isError ? '#e74c3c' : '#2ecc71';
+      notification.classList.add('show');
+      
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 4000);
+    }
+    
+    prayerForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const prayer = document.getElementById('prayer').value;
+      
+      // Show loading state
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<div class="loading"></div>';
+      submitBtn.disabled = true;
+      
+      // Simulate API call
+      setTimeout(() => {
+        // In a real implementation, you would send this data to your server
+        console.log('Prayer request submitted:', { name, email, prayer });
+        
+        // Show success message
+        showNotification(`Thank you ${name}! Your prayer request has been submitted. We will pray for you.`);
+        
+        // Reset form
+        prayerForm.reset();
+        
+        // Reset button
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }, 1500);
+    });
+
+    // Nav scroll effect
+    window.addEventListener('scroll', function() {
+      const nav = document.querySelector('.main-nav');
+      if (window.scrollY > 50) {
+        nav.style.padding = '10px 0';
+        nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+      } else {
+        nav.style.padding = '15px 0';
+        nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.05)';
+      }
+      
+      checkScroll();
+    });
+
+    // Initialize everything when page loads
+    window.addEventListener('DOMContentLoaded', function() {
+      initBackgroundElements();
+      checkScroll();
+      
+      // Add initial animation to first verse
+      verses[0].classList.add('visible');
+    });
+  </script>
 </body>
 </html>
